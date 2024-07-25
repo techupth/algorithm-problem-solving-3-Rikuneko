@@ -6,11 +6,21 @@
 customers = ["Somchai", "Arthit", "Suchada", "Napasorn", "Pimchanok"]
 
 function sortCustomerName(customers) {
-  // เริ่มเขียนโค้ดตรงนี้จ้า
-  return customers.sort();
+    // เริ่มเขียนโค้ดตรงนี้จ้า
+  for (let i = 0; i < customers.length - 1; i++) {
+    for (let j = 0; j < customers.length - i - 1; j++) {
+      if (customers[j] > customers[j + 1]) {
+        let temp = customers[j];
+        customers[j] = customers[j + 1];
+        customers[j + 1] = temp;
+      }
+    }
+  }
+  return customers;
 }
 
 console.log(sortCustomerName(customers))
 // Bubble Sort Algorithm มี Big O เป็นเท่าไร เพราะอะไร
-// ตอบคำถามตรงนี้จ้า
-// จำไม่ได้ครับ
+//เป็น O(n^2) เพราะในกรณีที่แย่ที่สุด อัลกอริทึมจะต้องทำการเปรียบเทียบและสลับตำแหน่งทุกคู่
+// ของสมาชิกในอาร์เรย์ ทำให้จำนวนการดำเนินการเพิ่มขึ้นเป็นกำลังสองตามจำนวนสมาชิกในอาร์เรย์
+

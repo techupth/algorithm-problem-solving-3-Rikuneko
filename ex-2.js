@@ -29,7 +29,17 @@ students = [
 
 function sortStudentsByScore(students) {
   // เริ่มเขียนโค้ดตรงนี้จ้า
-  return students[score].sort()
+  let n = students.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (students[j].score < students[j + 1].score) {
+        let temp = students[j];
+        students[j] = students[j + 1];
+        students[j + 1] = temp;
+      }
+    }
+  }
+  return students;
 }
 
 console.log(sortStudentsByScore(students))
